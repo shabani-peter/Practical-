@@ -5,7 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+*{margin: 0;padding: 0;box-sizing: border-box;font-family: Arial, Helvetica, sans-serif;}
+body{display: flex;height: 100px;overflow: hidden;background: cyan;transition: 0.3s;}
+.sidebar{width: 250px;background: chocolate;color: black;padding: 20px;transition: 0.3s;}
+.side.collapse{width: 70px;}
+.toggle-btn{font-size: 22px;cursor: pointer;margin-bottom: 20px;display: block;}
+.logo{font-size: 20px;font-weight: bold;margin-bottom: 25px;white-space: nowrap;overflow: hidden;}
+.sidebar .collapse.logo{opacity: 0;}
+.nav a{display: flex;align-items: center;gap: 15px;padding: 12px;color: black;margin-bottom: 10px;border-radius: 6px;transition: 0.2s;text-decoration: none;}
+.sidebar.collapse.nav a span{display: none;}
+.main {flex: 1;padding: 20px;overflow-y: auto;}
+.topbar{display: flex;justify-content: space-between;align-items: center;margin-bottom: 20px;}
+.darkmode-btn{padding: 8px 15px;background: orange;color: black;border: none;border-radius: 6px;cursor: pointer;}
+.section{display: none;}
+.section.active{display: block;}
+.cards{display: grid;grid-template-columns: repeat(auto-fit,minmax(20px 20px fr));gap: 20px;}
+.card{padding: 20px;background: white;border-radius: 8px;box-shadow: 0px 2px 4px green;}
+/* dack mood */
+body.dack{background: #1c1c1c;color: yellow;}
+body.dack.sidebar{color: purple;}
+body.dack.main{color: white;}
+body.dack.card{background: #2b2b2b;color: white;}
+body.dack.dackmood btn{background: #222;}
+.
+</style>
 <body>
+    <!-- ---------- SIDEBAR ---------- -->
+    <div class="sidebar" id="sidebar">
+        <i class="fa fa-bars toggle-btn" onclick="toggleSidebar()"></i>
+        <div class="logo">My Dashboard</div>
+
+        <nav class="nav">
+            <a href="#" onclick="showSection('home')"><i class="fa fa-home"></i><span>Home</span></a>
+            <a href="#" onclick="showSection('services')"><i class="fa fa-cogs"></i><span>Services</span></a>
+            <a href="#" onclick="showSection('gallery')"><i class="fa fa-image"></i><span>Gallery</span></a>
+            <a href="#" onclick="showSection('about')"><i class="fa fa-user"></i><span>About</span></a>
+        </nav>
+    </div>
+
+    <!-- ---------- MAIN CONTENT ---------- -->
+    <div class="main">
+
+        <div class="topbar">
+            <h2 id="page-title">Home</h2>
+            <button class="darkmode-btn" onclick="toggleDarkMode()">Dark Mode</button>
+        </div>
+
+        <!-- HOME SECTION -->
+        <div id="home" class="section active">
+            <div class="cards">
+                <div class="card"><h3>Total Users</h3><p>1200+</p></div>
+                <div class="card"><h3>Active Projects</h3><p>15</p></div>
+                <div class="card"><h3>Revenue</h3><p>$45,000</p></div>
+            </div>
+        </div>
+
+        <!-- SERVICES SECTION -->
+        <div id="services" class="section">
+            <h3>Services Overview</h3>
+            <div class="cards">
+                <div class="card"><h3>Web Design</h3><p>Modern UI/UX</p></div>
+                <div class="card"><h3>Programming</h3><p>Python, JavaScript</p></div>
+                <div class="card"><h3>Networking</h3><p>LAN, WAN setup</p></div>
+            </div>
+        </div>
+
+        <!-- GALLERY SECTION -->
+        <div id="gallery" class="section">
+            <h3>Image Gallery</h3>
+            <div class="cards">
+                <img src="eng.jpg" class="card" style="border-radius:10px;">
+                <img src="eng.jpg" class="card" style="border-radius:10px;">
+                <img src="eng.jpg" class="card" style="border-radius:10px;">
+            </div>
+        </div>
+
+        <!-- ABOUT SECTION -->
+        <div id="about" class="section">
+            <h3>About Us</h3>
+            <p>Welcome to our dashboard demo. Everything runs on a single page using custom JavaScript.</p>
+        </div>
+
+    </div>
+Software Evening March/june 7-9pm
     <!-- draw canva -->
      <canvas id="mycanva" width="100" height="100">
         <!-- collapse content -->
